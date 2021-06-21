@@ -11,13 +11,14 @@ def rolldice():
     elif dice==100:
         # print('The roll was 100. YOU LOSE!')
         return False
-    elif dice>51 & dice<100:
+    elif dice>=51 & dice<100:
         # print('The roll was between 51 and 100, YOU WIN')
         return True
     
     
 def play(funds, initial_wager, wager_count):
 
+    global broke_count
     value = funds
     wager = initial_wager
 
@@ -34,6 +35,8 @@ def play(funds, initial_wager, wager_count):
             vY.append(value)
         else:
             value = value - wager
+            if value<0:
+                broke_count = broke_count + 1
             wX.append(currentwager)
             vY.append(value)
 
@@ -46,11 +49,17 @@ def play(funds, initial_wager, wager_count):
     plt.plot(wX,vY)
 
 x = 0
+broke_count = 0
 
-while x<100:
-    play(10000,100,10000)
+
+#Multiple Bets
+while x<1000:
+    play(1000,100,500)
     x=x+1
 
+print ('death rate:',(broke_count/float(x)) * 100)
+print ('survival rate:',100 - ((broke_count/float(x)) * 100))
 plt.ylabel('Account Value')
 plt.xlabel('Wager Count')
+plt.axhline(0, color = 'r')
 plt.show()
