@@ -5,41 +5,52 @@ def rolldice():
 
     dice = random.randint(1,100)
 
-    if dice<=51:
+    if dice<=50:
+        # print('The roll was less than 51. YOU LOSE')
         return False
-    elif dice>51 & dice<=100:
+    elif dice==100:
+        # print('The roll was 100. YOU LOSE!')
+        return False
+    elif dice>51 & dice<100:
+        # print('The roll was between 51 and 100, YOU WIN')
         return True
     
-def play(total_funds, wager_amount, total_plays):
+    
+def play(funds, initial_wager, wager_count):
 
-    Play_num = []
-    Funds = []
-    Final_funds = []
+    value = funds
+    wager = initial_wager
 
-    play = 1
-    while play< total_plays:
+    currentwager = 1
+
+    wX = []
+    vY = []
+
+    
+    while currentwager<= wager_count:
         if rolldice():
-            total_funds = total_funds + wager_amount
-            Play_num.append(play)
-            Funds.append(total_funds)
+            value = value + wager
+            wX.append(currentwager)
+            vY.append(value)
         else:
-            total_funds = total_funds - wager_amount
-            Play_num.append(play)
-            Funds.append(total_funds)
-        play = play+1
+            value = value - wager
+            wX.append(currentwager)
+            vY.append(value)
 
-    plt.plot(Play_num,Funds)
-    Final_funds.append(Funds[-1])
-    return(Final_funds)
+        currentwager = currentwager + 1
 
-x =1 
 
-while x<=100:
-    ending_fund = play(10000,100,5000)
+    # if value<0:
+    #     value = 'Broke!'
+    # print('Funds:', value)
+    plt.plot(wX,vY)
+
+x = 0
+
+while x<100:
+    play(10000,100,10000)
     x=x+1
 
-plt.ylabel('Player Money in $')
-plt.xlabel('Number of bets')
+plt.ylabel('Account Value')
+plt.xlabel('Wager Count')
 plt.show()
-
-print("The player starts the game with $10,000 and ends with $" + str(sum(ending_fund)/len(ending_fund)))
