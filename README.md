@@ -15,7 +15,7 @@ Following are the graphs of different number of rounds -
 1. When you play for 10 rounds
   <br>
   ![Figure_1](https://user-images.githubusercontent.com/43466752/122908210-802b0400-d371-11eb-9982-335b9d12c39f.png)
-  <br>
+
 2. When you play for 100 rounds
     <br>
   ![Figure_2](https://user-images.githubusercontent.com/43466752/122908219-828d5e00-d371-11eb-9046-660cc6830761.png)
