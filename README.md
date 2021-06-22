@@ -4,10 +4,19 @@ When in Casino, the longer you play, the chances of you loosing money increases 
 
 This is a simple betting experiment which you can perform yourself to try out different simulations.
 
-Te first step is to generate a random number between 1 & 100 and then the rules of the game are as follows -
+The first step is to generate a random number between 1 & 100 and then the rules of the game are as follows -
 1. If the number is between 1 and 50 (both inclusive), the House wins.
 2. If the number is between 51 and 99 (both inclusive), You win.
 3. If the number is exactly 100, the House wins again.
 
+You initially start with $1000 and bet $100 in each round.
 
+Following are the graphs of different number of rounds - 
+1. When you play for 10 rounds
+  ![Figure_1](https://user-images.githubusercontent.com/43466752/122908210-802b0400-d371-11eb-9982-335b9d12c39f.png)
+2. When you play for 100 rounds
+
+3. When you play for 1000 rounds
+
+4. When you play for 10000 rounds
 
